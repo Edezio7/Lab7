@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+void SwapNumber(int&a, int&b){
+    int temp = a;
+    a=b;
+    b=temp;
+}
+int main(){
+    int varA=25;
+    int varB=100;
+    cout<<"varA before swapping: "<<varA<<endl;
+    cout<<"varB before swapping: "<<varB<<endl;
+    SwapNumber(varA,varB);
+    cout<<"varA before swapping: "<<varA<<endl;
+    cout<<"varB before swapping: "<<varB<<endl;
+    return 0;
+
+}
+
