@@ -1,0 +1,80 @@
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
+
+class Rectangle {
+private:
+    float width;
+    float length;
+
+public:
+    Rectangle();       // Default constructor
+    ~Rectangle();      // Destructor
+
+    void setwidth(float w);
+    void setlength(float l);
+
+    float getwidth() const;
+    float getlength() const;
+
+    float calculateArea() const;
+};
+
+#endif
+#include "Rectangle.h"
+
+// Constructor
+Rectangle::Rectangle() {
+    width = 0.0;
+    length = 0.0;
+}
+
+// Destructor
+Rectangle::~Rectangle() {
+    // Nothing to do
+}
+
+// Setters
+void Rectangle::setwidth(float w) {
+    width = w;
+}
+
+void Rectangle::setlength(float l) {
+    length = l;
+}
+
+// Getters
+float Rectangle::getwidth() const {
+    return width;
+}
+
+float Rectangle::getlength() const {
+    return length;
+}
+
+// Area calculator
+float Rectangle::calculateArea() const {
+    return width * length;
+}
+#include <iostream>
+#include "Rectangle.h"
+using namespace std;
+
+int main() {
+    Rectangle rect;
+    float userlength, userwidth;
+
+    cout << "Enter the width: ";
+    cin >> userwidth;
+
+    cout << "Enter the length: ";
+    cin >> userlength;
+
+    rect.setwidth(userwidth);
+    rect.setlength(userlength);
+
+    float area = rect.calculateArea();
+
+    cout << "The area of the rectangle: " << area << endl;
+
+    return 0;
+}
