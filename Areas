@@ -1,294 +1,110 @@
-#pragma once
-#include<iostream>
+#include <iostream>
 using namespace std;
-namespace shapes{
-    class square{
-        private:
+
+namespace shapes {
+
+    class Square {
+    private:
         float length;
-        public:
-        square();
-        square(float newlength);
-        ~square();
-        void setlength(float newlength);
-        float getlength();
+    public:
+        Square() : length(0.0f) {}
+        Square(float newLength) : length(newLength) {}
+        ~Square() {}
+
+        void setLength(float newLength) {
+            length = newLength;
+        }
+
+        float getLength() {
+            return length;
+        }
     };
-    #include "square.h"
-    sqaure::square(){
-        length=0.0f;
-    }
-    square::~square(){
-    }
-    square::square(float newlength){
-        newlength=length;
-    }
-    void sqaure::setlength(float newlength){
-        newlength=length;
-    }
-        float square::getlength(){
-            return newlength;
-    }
-}
-#pragma once
-#include<iostream>
-using namespace std;
-namespace shapes{
-    class triangle{
-        private:
+
+    class Triangle {
+    private:
         float base;
         float height;
-        public:
-        triangle();
-        triangle(float newbase,float newheight);
-        ~triangle();
-        void setbase(float newbase);
-        void setheight(float newheight);
-        float getbase();
-        float getheight();
+    public:
+        Triangle() : base(0.0f), height(0.0f) {}
+        Triangle(float newBase, float newHeight) : base(newBase), height(newHeight) {}
+        ~Triangle() {}
 
-        #include "triangle.h"
+        void setBase(float newBase) {
+            base = newBase;
+        }
 
-        triangle::triangle(){
-        base=0.0f;
-        height=0.0f;
-    }
-    triangle::~triangle(){
-    }
-    triangle::triangle(float newbase,float newheight){
-        newbase=base;
-        newheight=height;
-    }
-    void triangle::setbase(float newbase){
-        newbase=base;
-    }
-    void triangle::setheight(float newheight){
-        newheight=height;
-    }
-    float triangle::getbase(){
-        return newbase;
-    }
-    float triangle:;getheight(){
-        return newheight;
-    }
-    }
+        void setHeight(float newHeight) {
+            height = newHeight;
+        }
+
+        float getBase() {
+            return base;
+        }
+
+        float getHeight() {
+            return height;
+        }
     };
-}
-#pragma once
-#include<iostream>
-using namespace std;
-namespace shapes{
-    class circle{
-        private:
+
+    class Circle {
+    private:
         float radius;
-        public:
-        circle();
-        ~circle();
-        circle(float newradius);
-        void setradius(float newradius);
-        float getradius();
+    public:
+        Circle() : radius(0.0f) {}
+        Circle(float newRadius) : radius(newRadius) {}
+        ~Circle() {}
 
+        void setRadius(float newRadius) {
+            radius = newRadius;
+        }
+
+        float getRadius() {
+            return radius;
+        }
     };
-
-    #include "circle.h"
-    circle::circle(){
-        radius=0.0f;
-    }
-    circle::~circle(){
-    }
-    circle::circle(float newradius){
-        newradius=radius;
-    }
-    void circle::setradius(newradius){
-        newradius=radius;
-    }
-    float circle::getradius(){
-        return newradius;
-    }
 }
-class Area{
+
+class Area {
 public:
-float CalculateAreaOfSquare(float newlength);
-float CalculateAreaOfTriangle(float newbase,float newheight);
-float CalculateAreaOfCircle(float radius);
+    float CalculateAreaOfSquare(float length) {
+        return length * length;
+    }
+
+    float CalculateAreaOfTriangle(float base, float height) {
+        return 0.5f * base * height;
+    }
+
+    float CalculateAreaOfCircle(float radius) {
+        return 3.14159f * radius * radius;
+    }
 };
-Area::CalculateAreaOfSquare(float newlength){
-    return newlength*newlength;
-}
-Area::CalculateAreaOfTriangle(float newbase,float newheight){
-    return newbase*newheight;
-}
-Area::CalculateAreaOfCircle(float radius){
-    return 2*3.1415*newradius;
-}
-#include<iostream>
-using namespace std;
-int main(){
-    square::SArea s;
-    Triangle::TArea t;
-    circle::CArea c;
 
-    float SquareArea=SArea.CalculateAreaOfSquare(30.0){
-    cout<<"Area of square: "<<SquareArea<<endl;
-    Triangle::TArea
-    }
-    float TriangleArea=TArea.CalculateAreaOfTriangle(2.0,8.9){
-    cout<<"Area of Triangle: "<<TriangleArea<<endl;
-    circle::CArea
-    }
-    float CircleArea=CArea.CalculateAreaOfCircle(5.0){
-        cout<<"Area of the circle: "<<CircleArea<<endl;
-        return 0;
-    }
+int main() {
+    Area areaCalc;
 
-}#pragma once
-#include<iostream>
-using namespace std;
-namespace shapes{
-    class square{
-        private:
-        float length;
-        public:
-        square();
-        square(float newlength);
-        ~square();
-        void setlength(float newlength);
-        float getlength();
-    };
-    #include "square.h"
-    sqaure::square(){
-        length=0.0f;
-    }
-    square::~square(){
-    }
-    square::square(float newlength){
-        newlength=length;
-    }
-    void sqaure::setlength(float newlength){
-        newlength=length;
-    }
-        float square::getlength(){
-            return newlength;
-    }
-}
-#pragma once
-#include<iostream>
-using namespace std;
-namespace shapes{
-    class triangle{
-        private:
-        float base;
-        float height;
-        public:
-        triangle();
-        triangle(float newbase,float newheight);
-        ~triangle();
-        void setbase(float newbase);
-        void setheight(float newheight);
-        float getbase();
-        float getheight();
+    shapes::Square s;
+    float userLength;
+    cout << "Enter the side length of the square: ";
+    cin >> userLength;
+    s.setLength(userLength);
+    cout << "Area of square: " << areaCalc.CalculateAreaOfSquare(s.getLength()) << endl;
 
-        #include "triangle.h"
+    shapes::Triangle t;
+    float userBase, userHeight;
+    cout << "Enter the base of the triangle: ";
+    cin >> userBase;
+    cout << "Enter the height of the triangle: ";
+    cin >> userHeight;
+    t.setBase(userBase);
+    t.setHeight(userHeight);
+    cout << "Area of triangle: " << areaCalc.CalculateAreaOfTriangle(t.getBase(), t.getHeight()) << endl;
 
-        triangle::triangle(){
-        base=0.0f;
-        height=0.0f;
-    }
-    triangle::~triangle(){
-    }
-    triangle::triangle(float newbase,float newheight){
-        newbase=base;
-        newheight=height;
-    }
-    void triangle::setbase(float newbase){
-        newbase=base;
-    }
-    void triangle::setheight(float newheight){
-        newheight=height;
-    }
-    float triangle::getbase(){
-        return newbase;
-    }
-    float triangle:;getheight(){
-        return newheight;
-    }
-    }
-    };
-}
-#pragma once
-#include<iostream>
-using namespace std;
-namespace shapes{
-    class circle{
-        private:
-        float radius;
-        public:
-        circle();
-        ~circle();
-        circle(float newradius);
-        void setradius(float newradius);
-        float getradius();
-
-    };
-
-    #include "circle.h"
-    circle::circle(){
-        radius=0.0f;
-    }
-    circle::~circle(){
-    }
-    circle::circle(float newradius){
-        newradius=radius;
-    }
-    void circle::setradius(newradius){
-        newradius=radius;
-    }
-    float circle::getradius(){
-        return newradius;
-    }
-}
-class Area{
-public:
-float CalculateAreaOfSquare(float newlength);
-float CalculateAreaOfTriangle(float newbase,float newheight);
-float CalculateAreaOfCircle(float radius);
-};
-Area::CalculateAreaOfSquare(float newlength){
-    return newlength*newlength;
-}
-Area::CalculateAreaOfTriangle(float newbase,float newheight){
-    return newbase*newheight;
-}
-Area::CalculateAreaOfCircle(float radius){
-    return 2*3.1415*newradius;
-}
-#include<iostream>
-using namespace std;
-int main(){
-
-    square::SArea;
-    float userlength;
-    cout<<"Enter the length"<<end;
-    cin>>userlength;
-    float SquareArea=SArea.CalculateAreaOfSquare(userlength){
-    cout<<"Area of square: "<<SquareArea<<endl;
-    }
-
-    Triangle::TArea;
-    float userlength,userbase;
-    cout<<"Enter the length"<<endl;
-    cin>>userlength;
-    cout<<"Enter the base"<<endl;
-    cin>>userbase;
-    float TriangleArea=TArea.CalculateAreaOfTriangle(userlength,userbase){
-    cout<<"Area of Triangle: "<<TriangleArea<<endl;
-    
-    }
-    circle::CArea;
+    shapes::Circle c;
     float userRadius;
-    cout<<"Enter the radius"<<endl;
-    cin>>userRadius;
-    float CircleArea=CArea.CalculateAreaOfCircle(userRadius){
-        cout<<"Area of the circle: "<<CircleArea<<endl;
-        return 0;
-    }
+    cout << "Enter the radius of the circle: ";
+    cin >> userRadius;
+    c.setRadius(userRadius);
+    cout << "Area of circle: " << areaCalc.CalculateAreaOfCircle(c.getRadius()) << endl;
 
+    return 0;
 }
